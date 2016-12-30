@@ -1,4 +1,5 @@
 // https://forum.arduino.cc/index.php?topic=443173.msg3050399#msg3050399
+// https://forum.arduino.cc/index.php?topic=369719.msg2552797#msg2552797
 // adcdma
 // analog A1
 // could use DAC to provide input voltage   A0
