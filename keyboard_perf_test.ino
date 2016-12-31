@@ -1,26 +1,21 @@
 #include <Keyboard.h>;
 
 long t = 0;
-long counter = 0;
+int counter = 0;
 bool test=false;
+long mean = 0;
+double tri = 0.0;
 
 void setup()
-{  
-  SerialUSB.begin();
-  Keyboard.begin();
+{
   pinMode(0,INPUT);
+  Keyboard.begin();
 }
 
 void loop() 
-{  
-  if(micros()-t>1000000)
-  {    
-    SerialUSB.print("counter = ");  SerialUSB.println(counter);
-    counter=0;
-    delay(1000);    
-    t=micros();  
-  }
-  for(int n = 0; n < 30; n++)
+{
+  t=micros();  
+  for(int n = 0; n < 35; n++)
   {
     if(test && digitalRead(0)==LOW)
     {
@@ -30,10 +25,16 @@ void loop()
     {
       test=true;
     }
-    if(n%10==0)
+    if(n%25==0)
     {
-      Keyboard.release('a');  
+      Keyboard.releaseAll();  
     }    
   }
   counter++;
+  mean += micros()-t;
+  tri = (double)(mean)/counter;
+  tri /= 1000;
+  SerialUSB.print("Time to process : "); SerialUSB.print(tri);
+  SerialUSB.println(" ms");
+  delay(100);
 }
