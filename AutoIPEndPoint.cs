@@ -4,7 +4,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Windows;
 
-namespace SynLight.Model
+namespace Synless.Model
 {
     class AutoIPEndPoint
     {
