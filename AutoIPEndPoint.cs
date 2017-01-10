@@ -20,7 +20,7 @@ namespace SynLight.Model
         private bool once = true;
         private int shift = 0;
 
-        private static bool connected = false
+        private static bool connected = false;
        
         public AutoSocket(int _port = 8787, string querry = "ping", string _answer = "pong", int maxNumberOfDevices = 50)
         {
